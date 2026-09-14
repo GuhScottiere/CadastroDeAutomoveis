@@ -1,1 +1,17 @@
-spring.application.name=ApiCadastroDeAutomoveis
+spring:
+  application:
+    name: ApiCadastroDeAutomoveis
+
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/CadastroDeCarros}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:12345678}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true

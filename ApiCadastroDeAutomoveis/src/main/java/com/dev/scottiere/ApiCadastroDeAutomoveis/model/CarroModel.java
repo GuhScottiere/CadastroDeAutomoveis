@@ -1,7 +1,14 @@
-package com.dev.scottiere.ApiCadastroDeAutomoveis;
+package com.dev.scottiere.ApiCadastroDeAutomoveis.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import java.util.List;
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 @Entity
 @Table(name = "tb_carros")
 public class CarroModel {
@@ -11,22 +18,15 @@ public class CarroModel {
     private Long id;
     @Column(name = "marca")
     private String marca;
+    @Column(unique = true)
     private String modelo;
     private int anoFabricacao;
     private Double preco;
 
-    public  CarroModel(){
+    @ManyToOne
+    private MontadoraModel montadoraModel;
 
-    }
 
-    public CarroModel(String marca, String modelo, int anoFabricacao, Double preco) {
-
-        this.marca = marca;
-        this.modelo = modelo;
-        this.anoFabricacao = anoFabricacao;
-        this.preco = preco;
-
-    }
 
 
 }
